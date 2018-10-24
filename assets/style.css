@@ -51,7 +51,7 @@ body {
     display: flex;
     -ms-flex-pack: distribute;
     justify-content: space-around;
-    width: 50%;
+    width: 30%;
 }
 
 .content__desktop,
@@ -99,4 +99,25 @@ body {
 }
 .content__mobile {
     background-image: url(./img/icons/mobile.svg);
+}
+
+@media screen and (max-width:1370px) {
+    .main__content {
+        width: 40%;
+    }
+}
+@media screen and (max-width:1040px) {
+    .main__content {
+        width: 50%;
+    }
+}
+@media screen and (max-width:840px) {
+    .main__content {
+        width: 60%;
+    }
+}
+@media screen and (max-width:420px) {
+    .main__content {
+        width: 90%;
+    }
 }
