@@ -96,7 +96,23 @@ body {
     -webkit-filter: blur(5px);
     filter: blur(5px);
 }
-
+.header {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    flex-direction: column;
+    color: whitesmoke;
+    padding-top: 20px;
+    padding-left: 20px;
+    z-index: 3;
+}
+.link {
+    font-size: 14px;
+    font-weight: 300;
+    color: whitesmoke;
+    text-decoration: none;
+    letter-spacing: 5px;
+}
 .main {
     display: -webkit-box;
     display: -ms-flexbox;
