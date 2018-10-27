@@ -44,6 +44,7 @@
                 createDIV.appendChild(linkElem);
                 content.appendChild(createDIV);
             }
+            //added childs element attr href and className for mobile icons
             content.childNodes[0].classList.add("content__app-store");
             content.childNodes[0].childNodes[0].setAttribute("href","https://www.apple.com/lae/ios/app-store/");
             content.childNodes[1].classList.add("content__play-market");
@@ -86,16 +87,21 @@
         });
         setTimeout(() => {
             content.innerHTML = "";
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 4; i++) {
                 let createDIV = document.createElement("div");
                 let linkElem = document.createElement("a");
                 createDIV.appendChild(linkElem);
                 content.appendChild(createDIV);
             }
-            content.childNodes[0].classList.add("content__app-store");
-            content.childNodes[0].style.animationName = "animateMobileIconsOnBottom";      
-            content.childNodes[1].classList.add("content__play-market");
-            content.childNodes[0].style.animationName = "animateMobileIconsOnBottom"; 
+            //added childs element attr href and className for desktop icons
+            content.childNodes[0].classList.add("content__steam");  
+            content.childNodes[0].childNodes[0].setAttribute("href","./"); 
+            content.childNodes[1].classList.add("content__windows");
+            content.childNodes[1].childNodes[0].setAttribute("href","./");
+            content.childNodes[2].classList.add("content__mac");   
+            content.childNodes[2].childNodes[0].setAttribute("href","./");   
+            content.childNodes[3].classList.add("content__linux");
+            content.childNodes[3].childNodes[0].setAttribute("href","./");
         }, 800)
 
     }, false);
