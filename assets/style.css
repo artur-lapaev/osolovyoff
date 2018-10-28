@@ -48,11 +48,13 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
     color: whitesmoke;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 20px;
     z-index: 3;
 }
-
+.header > div {
+    margin-top: 10px;
+}
 .link {
     font-size: 14px;
     font-weight: 300;
