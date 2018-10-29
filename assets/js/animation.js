@@ -169,7 +169,6 @@
                     savePosition.z = za;
 
                     background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
-                    background.style.transitionTimingFunction = `cubic-bezier( ${x1},${y1}, ${x2}, ${y2})`;
 
                 } else {
 
@@ -196,7 +195,6 @@
                     savePosition.z = z;
 
                     background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
-                    background.style.transitionTimingFunction = `cubic-bezier( ${x1},${y1}, ${x2}, ${y2})`;
 
                 }
 
