@@ -1,4 +1,4 @@
-(function () {
+(function() {
     animateBackground()
     let elemMobile = document.querySelector(".content__mobile");
     let elemDesktop = document.querySelector(".content__desktop");
@@ -7,8 +7,7 @@
     elemMobile.addEventListener("click", () => {
         showButtonHome(true, "mobile");
 
-        let animationMobile = elemMobile.animate([
-            {
+        let animationMobile = elemMobile.animate([{
                 top: '0',
                 transform: 'scale(1)',
                 opacity: '1'
@@ -25,8 +24,7 @@
 
         });
 
-        let animationDesktop = elemDesktop.animate([
-            {
+        let animationDesktop = elemDesktop.animate([{
                 top: '0',
                 transform: 'scale(1)',
                 opacity: '1'
@@ -61,8 +59,7 @@
     elemDesktop.addEventListener("click", () => {
         showButtonHome(true, "mobile");
 
-        let animationMobile = elemMobile.animate([
-            {
+        let animationMobile = elemMobile.animate([{
                 top: '0',
                 transform: 'scale(1)',
                 opacity: '1'
@@ -79,8 +76,7 @@
 
         });
 
-        let animationDesktop = elemDesktop.animate([
-            {
+        let animationDesktop = elemDesktop.animate([{
                 top: '0',
                 transform: 'scale(1)',
                 opacity: '1'
@@ -114,6 +110,7 @@
         }, 800)
 
     }, false);
+
     function showButtonHome(show, devices) {
         if (show != false) {
             let footerElem = document.querySelector(".footer");
@@ -142,7 +139,7 @@
         let background = document.querySelector(".background");
         let savePosition = {};
 
-        setInterval(function () {
+        setInterval(function() {
 
             if (!savePosition.hasOwnProperty("x")) {
                 let x = Math.floor(Math.random() * (80 - 0)) + 0;
@@ -152,12 +149,15 @@
                 let xa = x + x;
                 let ya = y + y;
                 let za = z + z;
-                
+
                 background.animate([{
                     transform: `translate3d(${x}px,${y}px,${z}px)`
                 }, {
                     transform: `translate3d(${xa}px,${ya}px,${za}px)`
-                }], 1500);
+                }], {
+                    duration: 1500,
+                    easing: "linear"
+                });
 
                 savePosition.x = xa;
                 savePosition.y = ya;
@@ -166,16 +166,19 @@
                 background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
 
             } else {
-                
+
                 let x = Math.floor(Math.random() * (80 - 0)) + 0;
                 let y = Math.floor(Math.random() * (80 - 0)) + 0;
                 let z = Math.floor(Math.random() * (80 - 0)) + 0;
 
                 background.animate([{
-                     transform: `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`
+                    transform: `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`
                 }, {
                     transform: `translate3d(${x}px,${y}px,${z}px)`
-                }], 1500);
+                }], {
+                    duration: 1500,
+                    easing: "ease-out"
+                });
 
                 savePosition.x = x;
                 savePosition.y = y;

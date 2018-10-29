@@ -137,8 +137,7 @@ body {
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: flex-end;
-    width: 150px;
-    height: 150px;
+    height: 160px;
     color: white;
     background-position: center center;
     background-size: cover;
@@ -165,11 +164,11 @@ body {
 }
 
 .desktop__text {
-    bottom: -15px;
+    bottom: -35px;
 }
 
 .mobile__text {
-    bottom: -17px
+    bottom: -36px
 }
 
 .content__desktop:hover,
@@ -181,11 +180,12 @@ body {
 
 .content__desktop {
     background-image: url(./img/icons/desktop.png);
-    width: 180px;
+    width: 195px;
 }
 
 .content__mobile {
     background-image: url(./img/icons/mobile.png);
+    width: 100px;
 }
 
 .footer {
@@ -472,6 +472,12 @@ body {
     .content__desktop,
     .content__mobile {
         width: 45%;
+    }
+    .content__desktop {
+        background-size: 128px;
+    }
+    .content__mobile {
+        background-size: 75px;
     }
 }
 
