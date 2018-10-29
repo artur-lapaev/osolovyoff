@@ -1,22 +1,26 @@
-(function() {
+(function () {
     animateBackground()
     let elemMobile = document.querySelector(".content__mobile");
     let elemDesktop = document.querySelector(".content__desktop");
     let content = document.querySelector(".main__content");
+    let showPopUp = document.querySelector(".header__creators");
+    let popUpelem = document.querySelector(".pop-up__creators")
+    let closePopUp = document.querySelector(".creators__close");
+    
 
     elemMobile.addEventListener("click", () => {
         showButtonHome(true, "mobile");
 
         let animationMobile = elemMobile.animate([{
-                top: '0',
-                transform: 'scale(1)',
-                opacity: '1'
-            },
-            {
-                top: '-70px',
-                transform: 'scale(0.5)',
-                opacity: '0'
-            }
+            top: '0',
+            transform: 'scale(1)',
+            opacity: '1'
+        },
+        {
+            top: '-70px',
+            transform: 'scale(0.5)',
+            opacity: '0'
+        }
         ], 700);
         animationMobile.addEventListener("finish", () => {
 
@@ -25,15 +29,15 @@
         });
 
         let animationDesktop = elemDesktop.animate([{
-                top: '0',
-                transform: 'scale(1)',
-                opacity: '1'
-            },
-            {
-                top: '-70px',
-                transform: 'scale(0.5)',
-                opacity: '0'
-            }
+            top: '0',
+            transform: 'scale(1)',
+            opacity: '1'
+        },
+        {
+            top: '-70px',
+            transform: 'scale(0.5)',
+            opacity: '0'
+        }
         ], 700);
         animationDesktop.addEventListener("finish", () => {
             elemDesktop.style.display = "none";
@@ -60,15 +64,15 @@
         showButtonHome(true, "mobile");
 
         let animationMobile = elemMobile.animate([{
-                top: '0',
-                transform: 'scale(1)',
-                opacity: '1'
-            },
-            {
-                top: '70px',
-                transform: 'scale(0.5)',
-                opacity: '0'
-            }
+            top: '0',
+            transform: 'scale(1)',
+            opacity: '1'
+        },
+        {
+            top: '70px',
+            transform: 'scale(0.5)',
+            opacity: '0'
+        }
         ], 700);
         animationMobile.addEventListener("finish", () => {
 
@@ -77,15 +81,15 @@
         });
 
         let animationDesktop = elemDesktop.animate([{
-                top: '0',
-                transform: 'scale(1)',
-                opacity: '1'
-            },
-            {
-                top: '70px',
-                transform: 'scale(0.5)',
-                opacity: '0'
-            }
+            top: '0',
+            transform: 'scale(1)',
+            opacity: '1'
+        },
+        {
+            top: '70px',
+            transform: 'scale(0.5)',
+            opacity: '0'
+        }
         ], 700);
         animationDesktop.addEventListener("finish", () => {
             elemDesktop.style.display = "none";
@@ -139,67 +143,96 @@
         let background = document.querySelector(".background");
         let savePosition = {};
 
-        setInterval(function() {
+        setInterval(function () {
 
-                if (!savePosition.hasOwnProperty("x")) {
-                    let x = Math.floor(Math.random() * (80 - 0)) + 0;
-                    let y = Math.floor(Math.random() * (80 - 0)) + 0;
-                    let z = Math.floor(Math.random() * (80 - 0)) + 0;
+            if (!savePosition.hasOwnProperty("x")) {
+                let x = Math.floor(Math.random() * (80 - 0)) + 0;
+                let y = Math.floor(Math.random() * (80 - 0)) + 0;
+                let z = Math.floor(Math.random() * (80 - 0)) + 0;
 
-                    let xa = x + x;
-                    let ya = y + y;
-                    let za = z + z;
+                let xa = x + x;
+                let ya = y + y;
+                let za = z + z;
 
-                    let x1 = +(Math.random() * (1 - 0)).toFixed(2);
-                    let y1 = +(Math.random() * (1 - 0)).toFixed(2);
-                    let x2 = +(Math.random() * (1 - 0)).toFixed(2);
-                    let y2 = +(Math.random() * (1 - 0)).toFixed(2);
+                let x1 = +(Math.random() * (1 - 0)).toFixed(2);
+                let y1 = +(Math.random() * (1 - 0)).toFixed(2);
+                let x2 = +(Math.random() * (1 - 0)).toFixed(2);
+                let y2 = +(Math.random() * (1 - 0)).toFixed(2);
 
-                    background.animate([{
-                        transform: `translate3d(${x}px,${y}px,${z}px)`
-                    }, {
-                        transform: `translate3d(${xa}px,${ya}px,${za}px)`
-                    }], {
+                background.animate([{
+                    transform: `translate3d(${x}px,${y}px,${z}px)`
+                }, {
+                    transform: `translate3d(${xa}px,${ya}px,${za}px)`
+                }], {
                         duration: 1500,
                         easing: `cubic-bezier( ${x1},${y1}, ${x2}, ${y2})`
                     });
 
-                    savePosition.x = xa;
-                    savePosition.y = ya;
-                    savePosition.z = za;
+                savePosition.x = xa;
+                savePosition.y = ya;
+                savePosition.z = za;
 
-                    background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
+                background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
 
-                } else {
+            } else {
 
-                    let x = Math.floor(Math.random() * (80 - 0)) + 0;
-                    let y = Math.floor(Math.random() * (80 - 0)) + 0;
-                    let z = Math.floor(Math.random() * (80 - 0)) + 0;
+                let x = Math.floor(Math.random() * (80 - 0)) + 0;
+                let y = Math.floor(Math.random() * (80 - 0)) + 0;
+                let z = Math.floor(Math.random() * (80 - 0)) + 0;
 
-                    let x1 = +(Math.random() * (1 - 0)).toFixed(2);
-                    let y1 = +(Math.random() * (1 - 0)).toFixed(2);
-                    let x2 = +(Math.random() * (1 - 0)).toFixed(2);
-                    let y2 = +(Math.random() * (1 - 0)).toFixed(2);
+                let x1 = +(Math.random() * (1 - 0)).toFixed(2);
+                let y1 = +(Math.random() * (1 - 0)).toFixed(2);
+                let x2 = +(Math.random() * (1 - 0)).toFixed(2);
+                let y2 = +(Math.random() * (1 - 0)).toFixed(2);
 
-                    background.animate([{
-                        transform: `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`
-                    }, {
-                        transform: `translate3d(${x}px,${y}px,${z}px)`
-                    }], {
+                background.animate([{
+                    transform: `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`
+                }, {
+                    transform: `translate3d(${x}px,${y}px,${z}px)`
+                }], {
                         duration: 1500,
                         easing: `cubic-bezier( ${x1},${y1}, ${x2}, ${y2})`
                     });
 
-                    savePosition.x = x;
-                    savePosition.y = y;
-                    savePosition.z = z;
+                savePosition.x = x;
+                savePosition.y = y;
+                savePosition.z = z;
 
-                    background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
+                background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
 
-                }
+            }
 
-            },
+        },
             1500);
     }
 
+    showPopUp.addEventListener("click", () => {
+        let headerElem = document.querySelector(".header");
+        headerElem.animate([{
+            filter: "blur(0px)"
+        },{
+            filter: "blur(2px)"
+        }],500);
+        headerElem.style.filter = "blur(2px)";
+        popUpelem.style.display = "flex";
+        
+        popUpelem.animate([{
+            boxShadow: "0px 0px 0px 0px transparent",
+            opacity: "0"
+        },
+        {   
+            boxShadow: "1px 1px 60px 36px rgba(0,0,0,0.2)",
+            opacity: "1"
+        }], 500);
+    }, false);
+    closePopUp.addEventListener("click",()=>{  
+        let headerElem = document.querySelector(".header");
+        headerElem.animate([{
+            filter: "blur(2px)"
+        },{
+            filter: "blur(0px)"
+        }],500);      
+        popUpelem.style.display = "none";
+        headerElem.style.filter = "blur(0px)";
+    },false);
 }());
