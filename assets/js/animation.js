@@ -141,54 +141,67 @@
 
         setInterval(function() {
 
-            if (!savePosition.hasOwnProperty("x")) {
-                let x = Math.floor(Math.random() * (80 - 0)) + 0;
-                let y = Math.floor(Math.random() * (80 - 0)) + 0;
-                let z = Math.floor(Math.random() * (80 - 0)) + 0;
+                if (!savePosition.hasOwnProperty("x")) {
+                    let x = Math.floor(Math.random() * (80 - 0)) + 0;
+                    let y = Math.floor(Math.random() * (80 - 0)) + 0;
+                    let z = Math.floor(Math.random() * (80 - 0)) + 0;
 
-                let xa = x + x;
-                let ya = y + y;
-                let za = z + z;
+                    let xa = x + x;
+                    let ya = y + y;
+                    let za = z + z;
 
-                background.animate([{
-                    transform: `translate3d(${x}px,${y}px,${z}px)`
-                }, {
-                    transform: `translate3d(${xa}px,${ya}px,${za}px)`
-                }], {
-                    duration: 1500,
-                    easing: "linear"
-                });
+                    let x1 = +(Math.random() * (1 - 0)).toFixed(2);
+                    let y1 = +(Math.random() * (1 - 0)).toFixed(2);
+                    let x2 = +(Math.random() * (1 - 0)).toFixed(2);
+                    let y2 = +(Math.random() * (1 - 0)).toFixed(2);
 
-                savePosition.x = xa;
-                savePosition.y = ya;
-                savePosition.z = za;
+                    background.animate([{
+                        transform: `translate3d(${x}px,${y}px,${z}px)`
+                    }, {
+                        transform: `translate3d(${xa}px,${ya}px,${za}px)`
+                    }], {
+                        duration: 1500,
+                        easing: `cubic-bezier( ${x1},${y1}, ${x2}, ${y2})`
+                    });
 
-                background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
+                    savePosition.x = xa;
+                    savePosition.y = ya;
+                    savePosition.z = za;
 
-            } else {
+                    background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
+                    background.style.transitionTimingFunction = `cubic-bezier( ${x1},${y1}, ${x2}, ${y2})`;
 
-                let x = Math.floor(Math.random() * (80 - 0)) + 0;
-                let y = Math.floor(Math.random() * (80 - 0)) + 0;
-                let z = Math.floor(Math.random() * (80 - 0)) + 0;
+                } else {
 
-                background.animate([{
-                    transform: `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`
-                }, {
-                    transform: `translate3d(${x}px,${y}px,${z}px)`
-                }], {
-                    duration: 1500,
-                    easing: "ease-out"
-                });
+                    let x = Math.floor(Math.random() * (80 - 0)) + 0;
+                    let y = Math.floor(Math.random() * (80 - 0)) + 0;
+                    let z = Math.floor(Math.random() * (80 - 0)) + 0;
 
-                savePosition.x = x;
-                savePosition.y = y;
-                savePosition.z = z;
+                    let x1 = +(Math.random() * (1 - 0)).toFixed(2);
+                    let y1 = +(Math.random() * (1 - 0)).toFixed(2);
+                    let x2 = +(Math.random() * (1 - 0)).toFixed(2);
+                    let y2 = +(Math.random() * (1 - 0)).toFixed(2);
 
-                background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
+                    background.animate([{
+                        transform: `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`
+                    }, {
+                        transform: `translate3d(${x}px,${y}px,${z}px)`
+                    }], {
+                        duration: 1500,
+                        easing: `cubic-bezier( ${x1},${y1}, ${x2}, ${y2})`
+                    });
 
-            }
+                    savePosition.x = x;
+                    savePosition.y = y;
+                    savePosition.z = z;
 
-        }, 1500);
+                    background.style.transform = `translate3d(${savePosition.x}px,${savePosition.y}px,${savePosition.z}px)`;
+                    background.style.transitionTimingFunction = `cubic-bezier( ${x1},${y1}, ${x2}, ${y2})`;
+
+                }
+
+            },
+            1500);
     }
 
 }());
