@@ -82,19 +82,31 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 100%;
-    position: absolute;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    color: whitesmoke;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: calc(100% - 40px);
     padding-top: 10px;
     padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    color: whitesmoke;
     z-index: 3;
 }
-
-.header>div {
+.header__spec {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+.header__spec>div {
     margin-top: 10px;
 }
 
@@ -106,7 +118,9 @@ body {
     letter-spacing: 5px;
 }
 .header__creators {
-    width: 82px;
+    display: flex;
+    margin-top: 20px;
+    align-self: flex-start;
     color: whitesmoke;
     border: 1px solid white;
     padding: 8px;
@@ -141,7 +155,7 @@ body {
     display: flex;
     -ms-flex-pack: distribute;
     justify-content: space-around;
-    width: 30%;
+    width: 50%;
 }
 
 @-webkit-keyframes scaleTextOnload {
@@ -244,21 +258,23 @@ body {
 }
 
 .footer {
-    display: none;
+    display: flex;
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 90%;
-    left: 40px;
+    padding-bottom: 20px;
+    bottom: -90%;
     z-index: 3;
-    opacity: 0;
+    opacity: 1;
 }
 
 .footer__back-home {
+    display: none;
     background-image: url(./img/icons/home-button.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    margin-left: 20px;
     width: 50px;
     height: 50px;
     opacity: 0.4;
@@ -458,28 +474,77 @@ body {
     width: 100%;
     height: 100%;
 }
+.footer__socials {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    opacity: 1;
+}
+.socials {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    margin: 10px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transform: scale(1);
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1) transform;
 
-@media screen and (max-width:1370px) {
-    .main__content {
-        width: 40%;
-    }
+}
+.socials:hover {
+    transform: scale(1.4);
+}
+.socials__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.socials.socials__facebook {
+    background-image: url(./img/icons/socials/facebook.png);
+}
+.socials.socials__instagram {
+    background-image: url(./img/icons/socials/instagram.png);
+}
+.socials.socials__twitter {
+    background-image: url(./img/icons/socials/twitter.png);
+}
+.socials.socials__youtube {
+    background-image: url(./img/icons/socials/youtube.png);
+}
+.socials.socials__telegram {
+    background-image: url(./img/icons/socials/telegram.png);
+}
+.socials.socials__mail {
+    background-image: url(./img/icons/socials/mail.png);
+}
+.socials.socials__vk {
+    background-image: url(./img/icons/socials/vk.png);
 }
 
-@media screen and (max-width:1040px) {
+
+
+@media screen and (max-width:1170px) {
     .main__content {
-        width: 50%;
+        width: 60%;
     }
 }
 
 @media screen and (max-width:840px) {
     .main__content {
-        width: 60%;
+        width: 80%;
     }
 }
 
 @media screen and (max-width:824px) {
     .footer__back-home {
         margin-top: -25px;
+    }
+    .content__desktop {
+        background-size: 145px;
+    }
+    .content__mobile {
+        background-size: 85px;
     }
 }
 
@@ -497,12 +562,15 @@ body {
     }
 }
 
-@media screen and (max-width:567px) {
+@media screen and (max-width:568px) {
     .footer__back-home {
         margin-top: -10px;
     }
     .main__content {
         width: 70%;
+    }
+    .socials {
+        margin: 10px 5px;
     }
 }
 
@@ -520,6 +588,12 @@ body {
 @media screen and (max-width:420px) {
     .main__content {
         width: 90%;
+    }
+    .content__desktop {
+        background-size: 105px;
+    }
+    .content__mobile {
+        background-size: 65px;
     }
 }
 

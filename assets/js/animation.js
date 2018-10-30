@@ -6,11 +6,26 @@
     let showPopUp = document.querySelector(".header__creators");
     let popUpelem = document.querySelector(".pop-up__creators")
     let closePopUp = document.querySelector(".creators__close");
-    
+    let hideSocials = document.querySelector(".footer__socials");
 
     elemMobile.addEventListener("click", () => {
-        showButtonHome(true, "mobile");
 
+        let animateSocials = hideSocials.animate([{
+            opacity: '1'
+        },
+        {
+           opacity: '0'
+        }
+        ], 500);
+
+        animateSocials.addEventListener("finish", () => {
+
+            hideSocials.style.display = "none";
+            showButtonHome(true, "mobile")
+
+        });
+
+        
         let animationMobile = elemMobile.animate([{
             top: '0',
             transform: 'scale(1)',
@@ -61,7 +76,20 @@
     }, false);
 
     elemDesktop.addEventListener("click", () => {
-        showButtonHome(true, "mobile");
+        let animateSocials = hideSocials.animate([{
+            opacity: '1'
+        },
+        {
+           opacity: '0'
+        }
+        ], 500);
+
+        animateSocials.addEventListener("finish", () => {
+
+            hideSocials.style.display = "none";
+            showButtonHome(true, "mobile")
+
+        });
 
         let animationMobile = elemMobile.animate([{
             top: '0',
@@ -118,24 +146,25 @@
     function showButtonHome(show, devices) {
         if (show != false) {
             let footerElem = document.querySelector(".footer");
-            footerElem.addEventListener("click", () => {
-                footerElem.style.display = "none";
+
+            let btnHome = document.querySelector(".footer__back-home");
+            btnHome.style.display = "flex";
+            btnHome.addEventListener("click", () => {
                 content.innerHTML = "";
+                hideSocials.style.display = "flex";
+                hideSocials.animate([{
+                    opacity: "0"
+                }, {
+                    opacity: "1"
+                }], 500);
+                footerElem.style.left = "0px";
+                btnHome.style.display = "none";
                 elemDesktop.style.display = "flex";
                 elemMobile.style.display = "flex";
                 content.append(elemDesktop);
                 content.append(elemMobile);
-
             }, false);
-            footerElem.style.display = "flex";
-            let animateFooter = footerElem.animate([
-                { opacity: '0' },
-                { opacity: '1' }
-            ], 700);
 
-            animateFooter.addEventListener("finish", () => {
-                footerElem.style.opacity = "1";
-            });
         } else return;
     }
 
@@ -208,31 +237,51 @@
 
     showPopUp.addEventListener("click", () => {
         let headerElem = document.querySelector(".header");
+        let footerElem = document.querySelector(".footer");
+
+        footerElem.animate([{
+            filter: "blur(0px)"
+        }, {
+            filter: "blur(2px)"
+        }], 500);
+        footerElem.style.filter = "blur(2px)";
+
         headerElem.animate([{
             filter: "blur(0px)"
-        },{
+        }, {
             filter: "blur(2px)"
-        }],500);
+        }], 500);
         headerElem.style.filter = "blur(2px)";
+
         popUpelem.style.display = "flex";
-        
+
         popUpelem.animate([{
             boxShadow: "0px 0px 0px 0px transparent",
             opacity: "0"
         },
-        {   
+        {
             boxShadow: "1px 1px 60px 36px rgba(0,0,0,0.2)",
             opacity: "1"
         }], 500);
     }, false);
-    closePopUp.addEventListener("click",()=>{  
+    closePopUp.addEventListener("click", () => {
         let headerElem = document.querySelector(".header");
+        let footerElem = document.querySelector(".footer");
+
         headerElem.animate([{
             filter: "blur(2px)"
-        },{
+        }, {
             filter: "blur(0px)"
-        }],500);      
+        }], 500);
+
+        footerElem.animate([{
+            filter: "blur(2px)"
+        }, {
+            filter: "blur(0px)"
+        }], 500);
+        
         popUpelem.style.display = "none";
         headerElem.style.filter = "blur(0px)";
-    },false);
+        footerElem.style.filter = "blur(0px)";
+    }, false);
 }());
