@@ -617,18 +617,63 @@ body {
         background-size: 75px;
     }
 }
-
+@media screen and (max-height: 375px){
+    .main__content {
+        align-items: center;
+    }
+    
+    .content__app-store,
+    .content__play-market {
+        background-size: 145px;
+        width: 145px;
+        margin-bottom: 0;
+        margin-top: 35px;
+    }
+    .content__play-market {
+        margin-left: 35px;
+    }
+    .content__steam,
+    .content__windows,
+    .content__mac {
+        width: 45px;
+        height: 45px;
+    }
+    .content__linux {
+        width: 115px;
+        height: 80px;
+    }
+    .link {
+        font-size: 10px;
+    }
+    .content__desktop {
+        width: 90px;
+        height: 115px;
+        background-size: 90px;
+    }
+    .content__mobile {
+        width: 50px;
+        height: 120px;
+        background-size: 50px;
+    }
+    .desktop__text { bottom: 0 ;}
+    .mobile__text {bottom: 0;}
+}
 @media screen and (max-width:330px) {
     .content__steam,
     .content__windows,
     .content__mac,
     .content__linux {
-        width: calc(70%/2);
-        height: 105px;
-        margin: 15px;
+        width: 60px;
+        height: 60px;
+        z-index: 2;
+    }
+    .main__content {
+        margin-top: 20px;
     }
     .content__linux {
-        width: 125px;
+        height: 90px;
+        width: 120px;
+        z-index: 1;
     }
     .content__steam:hover,
     .content__windows:hover,
